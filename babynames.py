@@ -53,12 +53,11 @@ def extract_names(filename):
       file_string,
       re.MULTILINE
   )
-  names = [
+  names = sorted([
       # name_match[0] represents the rank of the name
       name + ' ' + name_match[0]
       for name_match in name_matches for name in name_match[1:]
-  ]
-  names.sort()
+  ])
   names.insert(0, year)
   return names
 
